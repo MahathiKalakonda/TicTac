@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.xml.crypto.dsig.spec.HMACParameterSpec;
+
 import java.lang.Math;
 class tictac
 {	static int board[][]=new int[3][3];
@@ -40,6 +43,18 @@ class tictac
 			return true;
 		return false;
 	}
+	public static void Display()
+	{
+		System.out.println("The grid is : ");
+		for(int row=0;row<3;row++)
+		{
+			for(int column=0;column<3;column++)
+			{
+				System.out.print(board[row][column]+"  ");
+			}
+			System.out.println();
+		}
+	}
 	public static void main(String args[])
 	{
 		Scanner in = new Scanner(System.in);
@@ -60,6 +75,7 @@ class tictac
 			{
 				board[row-1][col-1]=(filled%2)+1;
 				Status=test(row-1,col-1,(filled%2)+1);
+				Display();
 				if(Status)
 				{
 					System.out.println("Player"+((filled%2)+1)+" won the game");
