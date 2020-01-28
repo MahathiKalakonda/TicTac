@@ -1,24 +1,48 @@
 import java.util.Scanner;
-import java.lang.*;
+import java.lang.Math;
 class tictac
 {	static int board[][]=new int[3][3];
 	public static boolean test(int row,int column,int symbol)
 	{
-		if(board[(row-1+3)%3][column]==symbol && board[(row-2+3)%3][column]==symbol)
+		if(checkRow(row,column,symbol))
 			return true;
-		if(board[row][(column-1+3)%3]==symbol && board[row][(column-2+3)%3]==symbol)
+		if(checkColumn(row,column,symbol))
 			return true;
 		if(row==column)
-            if(board[(row-1+3)%3][(column-1+3)%3]==symbol && board[(row-2+3)%3][(column-2+3)%3]==symbol)
+            if(checkTopRightDiagonal(row,column,symbol))
         		return true;
 		if((row==1 && column ==1)||(Math.abs(row-column)==2))
-			if(board[(row+1+3)%3][(column-1+3)%3]==symbol && board[(row+2+3)%3][(column-2+3)%3]==symbol)
+			if(checkTopLeftDiagonal(row,column,symbol))
 				return true;
+		return false;
+	}
+	public static boolean checkRow(int row,int column,int symbol)
+	{
+		if(board[(row-1+3)%3][column]==symbol && board[(row-2+3)%3][column]==symbol)
+			return true;
+		return false;
+	}
+	public static boolean checkColumn(int row,int column,int symbol)
+	{
+		if(board[row][(column-1+3)%3]==symbol && board[row][(column-2+3)%3]==symbol)
+			return true;
+		return false;
+	}
+	public static boolean checkTopRightDiagonal(int row,int column,int symbol)
+	{
+		if(board[(row-1+3)%3][(column-1+3)%3]==symbol && board[(row-2+3)%3][(column-2+3)%3]==symbol)
+			return true;
+		return false;
+	}
+	public static boolean checkTopLeftDiagonal(int row,int column,int symbol)
+	{
+		if(board[(row+1+3)%3][(column-1+3)%3]==symbol && board[(row+2+3)%3][(column-2+3)%3]==symbol)
+			return true;
 		return false;
 	}
 	public static void main(String args[])
 	{
-		Scanner in=new Scanner(System.in);
+		Scanner in = new Scanner(System.in);
 		int filled=0;
 		boolean Status=false;
 		while(filled<9)
