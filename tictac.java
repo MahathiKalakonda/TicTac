@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-import javax.xml.crypto.dsig.spec.HMACParameterSpec;
-
 import java.lang.Math;
 class tictac
 {	static int board[][]=new int[3][3];
