@@ -5,4 +5,5 @@ public class tictac
 		GameController gameStarter=new GameController();
 		gameStarter.startGame();
 	}
+	
 }
