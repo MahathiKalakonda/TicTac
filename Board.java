@@ -2,11 +2,11 @@ class Board
 {
     char board[]=new char[9];
     int turns_remaining=9;
-    public boolean validate_entry(int position,char symbols[])
+    public boolean validate_entry(int position,char symbol)
     {
         if(board[position]!='\0')
             return false;
-        board[position]=symbols[turns_remaining%2];
+        board[position]=symbol;
         turns_remaining--;
         return true;
     }
@@ -21,5 +21,9 @@ class Board
             }
             System.out.println();
         }
+    }
+    public boolean Tester(int position)
+    {
+        return false;
     }
 }
