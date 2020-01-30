@@ -10,8 +10,9 @@ class Player
         this.symbol=symbol;
     }
 
-    public int getPosition()
+    public int getPosition(String playerName)
     {
+        System.out.println("Enter the input : "+playerName+"Player");
         int position=scanner.nextInt();
         return position;
     }

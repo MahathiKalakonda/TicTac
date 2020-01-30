@@ -4,6 +4,7 @@ class GameController
     Player players[]=new Player[2];
     String[] playerNumbers={"2nd","1st"};
     boolean status=false;
+    int position;
 
     public void startGame()
     {
@@ -16,12 +17,8 @@ class GameController
     {
         while(board.turnsRemaining>0)
         {   
-            int position;
             do
-            {
-                System.out.println("Enter the input : "+playerNumbers[board.turnsRemaining%2]+"Player");
-                position=players[board.turnsRemaining%2].getPosition();
-            }
+                position=players[board.turnsRemaining%2].getPosition(playerNumbers[board.turnsRemaining%2]);
             while(!board.validateEntry(position, players[board.turnsRemaining%2].symbol));
             if(board.Tester(position))
             {
