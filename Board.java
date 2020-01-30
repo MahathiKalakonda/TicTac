@@ -12,6 +12,7 @@ class Board
         if(board[position]!='\0')
             return false;
         board[position]=symbol;
+        Display();
         return true;
     }
 
@@ -32,13 +33,13 @@ class Board
     {
         for(int condition=0;condition<numberConditions;condition++)
         {   
-            if(is_position_in_condition(conditions[condition],position))
+            if(isPositionInCondition(conditions[condition],position))
             {
-                Character[] symbols_in_condition=new Character[3];
-                for(int position_in_condition=0,symbol_index=0;position_in_condition<3;position_in_condition++,symbol_index++)
-                    symbols_in_condition[symbol_index]=board[conditions[condition][position_in_condition]];
-                Set<Character> symbol_set = new HashSet<Character>(Arrays.asList(symbols_in_condition));
-                if(symbol_set.size()==1)
+                Character[] symbolsInCondition=new Character[3];
+                for(int positionInCondition=0,symbolIndex=0;positionInCondition<3;positionInCondition++,symbolIndex++)
+                    symbolsInCondition[symbolIndex]=board[conditions[condition][positionInCondition]];
+                Set<Character> symbolSet = new HashSet<Character>(Arrays.asList(symbolsInCondition));
+                if(symbolSet.size()==1)
                     return true;
             }
         }
@@ -46,14 +47,14 @@ class Board
         return false;
     }
 
-    public boolean is_position_in_condition(int condition[],int position)
+    public boolean isPositionInCondition(int condition[],int position)
     {
-        for(int iteration_variable=0;iteration_variable<condition.length;iteration_variable++)
+        for(int iterationVariable=0;iterationVariable<condition.length;iterationVariable++)
         {
-            if(condition[iteration_variable]==position)
+            if(condition[iterationVariable]==position)
                 return true;
         }
         return false;
     }
-    
+
 }

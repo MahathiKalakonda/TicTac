@@ -23,7 +23,6 @@ class GameController
                 position=players[board.turnsRemaining%2].getPosition();
             }
             while(!board.validateEntry(position, players[board.turnsRemaining%2].symbol));
-            board.Display();
             if(board.Tester(position))
             {
                 System.out.println(playerNumbers[board.turnsRemaining%2]+"Player won the game");
