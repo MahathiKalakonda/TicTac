@@ -1,31 +1,32 @@
-class Game_Controller
+class GameController
 {
     Board board=new Board();
-    Player player[]=new Player[2];
-    String[] player_numbers={"2nd","1st"};
+    Player players[]=new Player[2];
+    players[0]=new Player('O');
+    players[1]=new Player('X');
+    String[] playerNumbers={"2nd","1st"};
     boolean status=false;
-    Game_Controller()
+
+    public void startGame()
     {
-        player[1]=new Player();
-        do{
-        player[0]=new Player();
-        }while(player[1].symbol==player[0].symbol);
-        Take_Positions();
+        takePositions();
     }
-    public void Take_Positions()
+
+    public void takePositions()
     {
-        while(board.turns_remaining>0)
+        while(board.turnsRemaining>0)
         {   int position;
-            do{System.out.println("Enter the input : "+player_numbers[board.turns_remaining%2]+"Player");
-                position=player[board.turns_remaining%2].getPosition();
-            }while(!board.validate_entry(position, player[board.turns_remaining%2].symbol));
+            do{System.out.println("Enter the input : "+playerNumbers[board.turnsRemaining%2]+"Player");
+                position=players[board.turnsRemaining%2].getPosition();
+            }while(!board.validateEntry(position, players[board.turnsRemaining%2].symbol));
             board.Display();
             if(board.Tester(position))
             {
-                System.out.println(player_numbers[board.turns_remaining%2]+"Player won the game");
+                System.out.println(playerNumbers[board.turnsRemaining%2]+"Player won the game");
                 return;
             }
         }
         System.out.println("Draw Match");
     }
+
 }
