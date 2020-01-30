@@ -54,16 +54,16 @@ class tictac
 	}
 	public static void main(String args[])
 	{
-		Scanner in = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		int filled=0;
 		boolean Status=false;
 		while(filled<9)
 		{	
 			System.out.println("Enter position of player"+((filled%2)+1));
 			System.out.println("Row : ");
-			int row=in.nextInt();
+			int row=scanner.nextInt();
 			System.out.println("Column : ");
-			int col=in.nextInt();
+			int col=scanner.nextInt();
 			if(board[row-1][col-1]!=0)
 			{
 				System.out.println("Position is already filled, Please enter another position ");
