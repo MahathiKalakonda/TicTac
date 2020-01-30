@@ -49,9 +49,9 @@ class Board
 
     public boolean isPositionInCondition(int condition[],int position)
     {
-        for(int iterationVariable=0;iterationVariable<condition.length;iterationVariable++)
+        for(int positionInCondition=0;positionInCondition<condition.length;positionInCondition++)
         {
-            if(condition[iterationVariable]==position)
+            if(condition[positionInCondition]==position)
                 return true;
         }
         return false;
