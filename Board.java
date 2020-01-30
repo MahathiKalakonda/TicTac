@@ -1,5 +1,6 @@
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Arrays;
 class Board
 {
     char board[]=new char[9];
@@ -28,13 +29,22 @@ class Board
     public boolean Tester(int position)
     {
         int number_conditions=8;
-        for(int condition=0;condition<number_conditions;condition++)
-        {
-            char[] symbols_in_condition=new char[3];
+        for(int condition=0;condition<number_conditions && is_position_in_condition(conditions[condition],position);condition++)
+        {   Character[] symbols_in_condition=new Character[3];
             for(int position_in_condition=0,symbol_index=0;position_in_condition<3;position_in_condition++,symbol_index++)
                 symbols_in_condition[symbol_index]=board[conditions[condition][position_in_condition]];
-            Set<Character> symbol_set = new HashSet<Character>();
-            symbol_set.addAll(symbols_in_condition);
+            Set<Character> symbol_set = new HashSet<Character>(Arrays.asList(symbols_in_condition));
+            if(symbol_set.size()==1)
+                return true;
+        }
+        return false;
+    }
+    public boolean is_position_in_condition(int condition[],int position)
+    {
+        for(int iteration_variable=0;iteration_variable<condition.length;iteration_variable++)
+        {
+            if(condition[iteration_variable]==position)
+                return true;
         }
         return false;
     }
