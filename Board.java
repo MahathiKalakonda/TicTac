@@ -10,4 +10,16 @@ class Board
         turns_remaining--;
         return true;
     }
+    public void Display()
+    {
+        System.out.println("Board is ");
+        for(int row = 0;row/3<3;row+=3)
+        {
+            for(int column = row;(column-row)<3;column++)
+            {
+                System.out.print(board[column]+"  ");
+            }
+            System.out.println();
+        }
+    }
 }
