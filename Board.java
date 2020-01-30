@@ -22,28 +22,33 @@ class Board
         for(int row = 0;row/3<3;row+=3)
         {
             for(int column = row;(column-row)<3;column++)
-            {
                 System.out.print(board[column]+"  ");
-            }
             System.out.println();
         }
     }
 
     public boolean Tester(int position)
-    {
-        for(int condition=0;condition<numberConditions;condition++)
+    {   
+        boolean isGameOver=false;
+        for(int conditionPosition=0;conditionPosition<numberConditions && isGameOver==false ;conditionPosition++)
         {   
-            if(isPositionInCondition(conditions[condition],position))
+            if(isPositionInCondition(conditions[conditionPosition],position))
             {
-                Character[] symbolsInCondition=new Character[3];
-                for(int positionInCondition=0,symbolIndex=0;positionInCondition<3;positionInCondition++,symbolIndex++)
-                    symbolsInCondition[symbolIndex]=board[conditions[condition][positionInCondition]];
-                Set<Character> symbolSet = new HashSet<Character>(Arrays.asList(symbolsInCondition));
-                if(symbolSet.size()==1)
-                    return true;
+                isGameOver=areSymbolsSame(conditionPosition);
             }
         }
         turnsRemaining--;
+        return isGameOver;
+    }
+
+    public boolean areSymbolsSame(int conditionPosition)
+    {
+        Character[] symbolsInCondition=new Character[3];
+        for(int positionInCondition=0,symbolIndex=0;positionInCondition<3;positionInCondition++,symbolIndex++)
+            symbolsInCondition[symbolIndex]=board[conditions[conditionPosition][positionInCondition]];
+        Set<Character> symbolSet = new HashSet<Character>(Arrays.asList(symbolsInCondition));
+        if(symbolSet.size()==1)
+            return true;
         return false;
     }
 
