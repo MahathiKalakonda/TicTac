@@ -17,7 +17,8 @@ class GameController
         while(board.turnsRemaining>0)
         {
             takePositions();
-            if(board.Tester(position))
+            status=board.Tester(position);
+            if(status)
                 break;
         }
         displayStatus();
