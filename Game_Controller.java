@@ -18,12 +18,9 @@ class GameController
         {
             takePositions();
             if(board.Tester(position))
-            {
-                System.out.println(playerNumbers[(board.turnsRemaining+1)%2]+"Player won the game");
-                return;
-            }
+                break;
         }
-        System.out.println("Draw Match");
+        displayStatus();
     }
 
     public void takePositions()
@@ -31,5 +28,13 @@ class GameController
         do
             position=players[board.turnsRemaining%2].getPosition(playerNumbers[board.turnsRemaining%2]);
         while(!board.validateEntry(position, players[board.turnsRemaining%2].symbol));
+    }
+
+    public void displayStatus()
+    {
+        if(status)
+            System.out.println(playerNumbers[(board.turnsRemaining+1)%2]+"Player won the game");
+        else
+            System.out.println("Draw Match");
     }
 }
