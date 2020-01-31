@@ -13,6 +13,7 @@ class Board
             return false;
         board[position]=symbol;
         Display();
+        turnsRemaining--;
         return true;
     }
 
@@ -31,13 +32,8 @@ class Board
     {   
         boolean isGameOver=false;
         for(int conditionPosition=0;conditionPosition<numberConditions && isGameOver==false ;conditionPosition++)
-        {   
             if(isPositionInCondition(conditions[conditionPosition],position))
-            {
                 isGameOver=areSymbolsSame(conditionPosition);
-            }
-        }
-        turnsRemaining--;
         return isGameOver;
     }
 
@@ -55,10 +51,8 @@ class Board
     public boolean isPositionInCondition(int condition[],int position)
     {
         for(int positionInCondition=0;positionInCondition<condition.length;positionInCondition++)
-        {
             if(condition[positionInCondition]==position)
                 return true;
-        }
         return false;
     }
 }
