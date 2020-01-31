@@ -61,5 +61,4 @@ class Board
         }
         return false;
     }
-
 }

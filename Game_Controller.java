@@ -28,5 +28,4 @@ class GameController
         }
         System.out.println("Draw Match");
     }
-
 }
