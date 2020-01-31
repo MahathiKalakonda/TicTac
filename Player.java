@@ -11,8 +11,13 @@ class Player
 
     public int getPosition(String playerName)
     {
-        System.out.println("Enter the input : "+playerName+"Player");
+        displayPlayer(playerName);
         int position=scanner.nextInt();
         return position;
+    }
+
+    public void displayPlayer(String playerName)
+    {
+        System.out.println("Enter the input : "+playerName+"Player");
     }
 }
