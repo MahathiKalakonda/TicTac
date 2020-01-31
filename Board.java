@@ -5,7 +5,7 @@ class Board
 {
     char board[]=new char[9];
     int conditions[][]={{0,1,2},{0,3,6},{0,4,8},{3,4,5},{6,7,8},{1,4,7},{2,5,8},{2,4,6}};
-    int turnsRemaining=9, numberConditions=conditions.length;
+    int turnsRemaining=9, numberConditions=conditions.length, boardSize=3;
 
     public boolean validateEntry(int position,char symbol)
     {
@@ -20,7 +20,7 @@ class Board
     public void Display()
     {
         System.out.println("Board is ");
-        for(int row = 0;row/3<3;row+=3)
+        for(int row = 0;row/boardSize<boardSize;row+=boardSize)
         {
             for(int column = row;(column-row)<3;column++)
                 System.out.print(board[column]+"  ");
